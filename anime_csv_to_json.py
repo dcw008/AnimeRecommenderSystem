@@ -19,5 +19,10 @@ def csv_to_json():
 
 # csv_to_json()
 
-data = json.load(open('rating.json'))
-print(len(data))
+def get_200k():
+    data = json.load(open('rating.json'))
+    data = data[:200000]
+    with open('rating_200k.json', 'w') as outfile:
+        json.dump(data, outfile)
+
+get_200k()
