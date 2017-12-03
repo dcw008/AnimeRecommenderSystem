@@ -32,6 +32,7 @@ for rating in type_count:
     avg = (total_rating_by_type[rating] * 1.0) / type_count[rating]
     avg_rating_by_type[rating] = avg
 print(avg_rating_by_type)
+#average rating based on type
 # {'Movie': 6.159105621805784, 'TV': 6.660242936361237, 'OVA': 6.31730594986408, 'Special': 6.501056085918853, 'Music': 5.588995901639343, 'ONA': 5.572731411229138}
 
 min_mem = 2 ** 31 - 1
@@ -68,11 +69,6 @@ for anime in anime_data:
     anime_list = anime_by_member_count[percentile-1]
     anime_list.append(anime)
 
-
-# [{'anime_id': '16498', 'name': 'Shingeki no Kyojin', 'genre': ['Action', 'Drama', 'Fantasy', 'Shounen', 'SuperPower'], 'type': 'TV', 'episodes': '25', 'rating': 8.54, 'members': 896229}, {'anime_id': '11757', 'name': 'Sword Art Online', 'genre': ['Action', 'Adventure', 'Fantasy', 'Game', 'Romance'], 'type': 'TV', 'episodes': '25', 'rating': 7.83, 'members': 893100}]
-
-
-
 average_rating_range = []
 for i in range(10):
     total_rating = 0
@@ -86,4 +82,13 @@ for i in range(10):
         average_rating_range.append(avg)
 
 print(average_rating_range)
+bucket_size = []
+
+for anime_list in anime_by_member_count:
+    bucket_size.append(len(anime_list))
+
+print(bucket_size)
+print(anime_by_member_count[4])
+# average rating based on percentile of number of ratings ratings
+# animes that are rated more frequently tend to have higher reviews
 # [6.2631217021276475, 7.727129909365564, 7.960973451327431, 8.115102040816325, 8.372380952380954, 8.224117647058824, 8.385, 0, 8.184999999999999, 8.71]
